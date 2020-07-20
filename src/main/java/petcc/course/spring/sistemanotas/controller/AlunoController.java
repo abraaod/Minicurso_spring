@@ -1,5 +1,6 @@
 package petcc.course.spring.sistemanotas.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,10 @@ public class AlunoController {
     }
 
     @GetMapping
+    @ApiOperation(value = "Endpoint para buscar alunos",
+                    notes = "Endpoint usado para buscar todos os alunos presentes no sistema",
+                    response = Aluno.class,
+                    httpMethod = "GET")
     public ResponseEntity<?> buscarAlunos(){
         return ResponseEntity.ok(service.buscarAlunos());
     }
